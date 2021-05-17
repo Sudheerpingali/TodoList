@@ -1,30 +1,29 @@
 import React from "react";
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+import { IconButton } from "@material-ui/core";
 
-export default function Todoitem({ todo, onDeleteTodo }) {
+export default function Todoitem({ todo, onDeleteTodo,todoComplete}) {
   function deleteTodo() {
     onDeleteTodo(todo.id);
   }
+  function handleCheckbox() {
+    todoComplete(todo.id);
+  }
+
+
+  function Deletebutton({onClick}){
+    return(
+      <IconButton onClick={onClick}><DeleteOutlineIcon color="error"/></IconButton>
+    )
+  }
 
   return (
-    <li className="list">
-      <input type="checkbox" />
-      <label className="addeditems">{todo.task}</label>
-      <button className="deleteicon" onClick={deleteTodo}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="14"
-          height="14"
-          fill="currentColor"
-          className="bi bi-trash"
-          viewBox="0 0 "
-        >
-          <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
-          <path
-            fill-rule="evenodd"
-            d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
-          />
-        </svg>
-      </button>
-    </li>
+    <div className="list">
+      <input type="checkbox" onClick={handleCheckbox} />
+      <li style={{ textDecoration: todo.isComplete ? "line-through" : null }}>
+        {todo.task}
+      </li>
+      <Deletebutton onClick={deleteTodo}/>
+    </div>
   );
 }

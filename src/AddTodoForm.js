@@ -10,6 +10,7 @@ export default function AddTodoForm({ onAddTodo }) {
     if (todo) {
       onAddTodo({
         task: todo,
+        isComplete:false,
         id: Math.random() * 100
       });
       setTodo("");

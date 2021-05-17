@@ -34,6 +34,7 @@ input[type="text"] {
 
 li {
   list-style-type: none;
+  font-weight: bold;
 }
 .list {
   align-items: center;
@@ -44,12 +45,4 @@ li {
   display: flex;
   justify-content: space-between;
 }
-label {
-  font-weight: bold;
-}
-input[type="checkbox"]:checked + label.addeditems {
-  text-decoration: line-through;
-}
-.deleteicon {
-  color: red;
-}
+
