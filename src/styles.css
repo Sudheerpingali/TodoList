@@ -1,0 +1,55 @@
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
+.App {
+  text-align: center;
+}
+h1 {
+  background-color: white;
+  font-size: 50px;
+  margin-top: 30px;
+}
+.maindiv {
+  min-height: 100vh;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+input[type="text"] {
+  width: 220px;
+  border: 2px solid rgb(28, 29, 29);
+}
+
+.childdiv {
+  background-color: rgb(206, 214, 214);
+  border: 2px solid black;
+  border-radius: 15px;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 70px;
+  width: 380px;
+}
+
+li {
+  list-style-type: none;
+}
+.list {
+  align-items: center;
+  background: #fff;
+  padding: 8px;
+  border-radius: 5px;
+  margin: 0 20px 5px -20px;
+  display: flex;
+  justify-content: space-between;
+}
+label {
+  font-weight: bold;
+}
+input[type="checkbox"]:checked + label.addeditems {
+  text-decoration: line-through;
+}
+.deleteicon {
+  color: red;
+}
