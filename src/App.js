@@ -17,13 +17,14 @@ export default function App() {
   function handleDeleteTodo(key) {
     setTodos(todos.filter((todo) => todo.id !== key));
   }
-  function todoComplete(key) {
+  function handleTodoComplete(key) {
     setTodos(
       todos.map((todo) => {
         if (todo.id === key) {
           return {
             ...todo,
-            isComplete: !todo.isComplete
+            isComplete: !todo.isComplete,
+            
           };
         }
         return todo;
@@ -42,14 +43,14 @@ export default function App() {
   }, [todos]);
 
   return (
-    <>
+    // <>
       <div className="maindiv">
-        <div className="childdiv">
+        {/* <div className="childdiv"> */}
           <h1>Todo List</h1>
           <AddTodoForm onAddTodo={handleAddTodo} />
-          <TodoList todos={todos} onDeleteTodo={handleDeleteTodo} todoComplete={todoComplete}/>
-        </div>
+          <TodoList todos={todos} onDeleteTodo={handleDeleteTodo} onTodoComplete={handleTodoComplete}/>
+        {/* </div> */}
       </div>
-  </>
-  );
+  
+  )
 }

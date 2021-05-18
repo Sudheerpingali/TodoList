@@ -3,33 +3,43 @@ html {
   padding: 0;
   margin: 0;
 }
-.App {
+/* .App {
   text-align: center;
-}
+} */
 h1 {
   background-color: white;
   font-size: 50px;
   margin-top: 30px;
 }
-.maindiv {
+#root{
   min-height: 100vh;
   background-color: white;
   display: flex;
   justify-content: center;
 }
+/* .maindiv {
+  min-height: 100vh;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+} */
 /* input[type="text"] {
   width: 220px;
   border: 2px solid rgb(28, 29, 29);
 } */
 
-.childdiv {
+.maindiv {
   background-color: rgb(206, 214, 214);
   border: 2px solid black;
   border-radius: 15px;
   text-align: center;
   margin-top: 30px;
   margin-bottom: 70px;
-  width: 400px;
+  width: 380px;
+  /* display: flex; */
+  /* flex-direction: row; */
+  justify-content: center;
+  /* min-height: 100vh; */
   /* justify-items: center; */
 }
 
@@ -39,10 +49,10 @@ li {
 }
 .list {
   align-items: center;
-  background: #fff;
-  padding: 6px;
-  border-radius: 5px;
-  margin: 0 20px 5px -20px;
+   background: #fff;
+  /* padding: 6px; */
+   border-radius: 5px; 
+  margin: 0 20px 5px; 
   display: flex;
   justify-content: space-between;
 }

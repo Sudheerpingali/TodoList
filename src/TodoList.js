@@ -2,13 +2,14 @@ import React from "react";
 import Todoitem from "./TodoItem";
 import {List} from "@material-ui/core"
 
-export default function TodoList({ todos, onDeleteTodo,todoComplete }) {
+export default function TodoList({ todos, onDeleteTodo,onTodoComplete }) {
   return (
 
-    <ul>
+   <List>
       {todos.map((todo) => (
-        <Todoitem key={todo.id} todo={todo} onDeleteTodo={onDeleteTodo} todoComplete={todoComplete}/>
+        <Todoitem key={todo.id} todo={todo} onDeleteTodo={onDeleteTodo} onTodoComplete={onTodoComplete}/>
       ))}
-  </ul>
+  </List>
   );
 }
+ 
