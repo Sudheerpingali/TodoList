@@ -1,4 +1,6 @@
 import React from "react";
+import {IconButton, TextField} from "@material-ui/core"
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 
 export default function AddTodoForm({ onAddTodo }) {
   const [todo, setTodo] = React.useState("");
@@ -19,16 +21,21 @@ export default function AddTodoForm({ onAddTodo }) {
       alert("Please Enter Task");
     }
   }
-
+  function Addbutton(){
+    return(
+      <IconButton type="submit"><AddCircleOutlineIcon fontSize="large"/></IconButton>
+    )
+  }
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
+    <form className="todoform" onSubmit={handleSubmit}>
+      <TextField 
+        label="Enter Task"
+        // type="text"
         value={todo}
         onChange={handleTaskInputChange}
-        placeholder="Enter Task"
-      />
-      <button type="submit">Add</button>
+        />
+      <Addbutton />
+      {/* <button type="submit">Add</button> */}
     </form>
   );
 }

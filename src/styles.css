@@ -17,10 +17,10 @@ h1 {
   display: flex;
   justify-content: center;
 }
-input[type="text"] {
+/* input[type="text"] {
   width: 220px;
   border: 2px solid rgb(28, 29, 29);
-}
+} */
 
 .childdiv {
   background-color: rgb(206, 214, 214);
@@ -29,7 +29,8 @@ input[type="text"] {
   text-align: center;
   margin-top: 30px;
   margin-bottom: 70px;
-  width: 385px;
+  width: 400px;
+  /* justify-items: center; */
 }
 
 li {
@@ -39,10 +40,14 @@ li {
 .list {
   align-items: center;
   background: #fff;
-  padding: 8px;
+  padding: 6px;
   border-radius: 5px;
   margin: 0 20px 5px -20px;
   display: flex;
   justify-content: space-between;
 }
-
+/* ..todoform{
+  display: flex;
+  flex-direction: row;
+  /* text-align: center; */
+/* } */
