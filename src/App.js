@@ -3,7 +3,7 @@ import React from "react";
 import AddTodoForm from "./AddTodoForm";
 import TodoList from "./TodoList";
 import Typography from '@material-ui/core/Typography';
-
+import AppBar from '@material-ui/core/AppBar';
 export default function App() {
   const [todos, setTodos] = React.useState(()=>{
     return JSON.parse(localStorage.getItem("todos"));
@@ -32,27 +32,21 @@ export default function App() {
       })
     );
   }
-  // React.useEffect(() => {
-  //   const storedtodos = JSON.parse(localStorage.getItem("todos"));
-  //   if (storedtodos) {
-  //     setTodos(storedtodos);
-  //   }
-  // }, []);
+  
   React.useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
     console.log(todos);
   }, [todos]);
 
   return (
-    // <>
+    <>
+    <AppBar style={{padding:20,fontSize:35,alignItems:"center",fontStyle:"italic"}}>Todo App</AppBar>
       <div className="maindiv">
-        {/* <div className="childdiv"> */}
-          {/* <h1>Todo List</h1> */}
           <Typography variant="h2" style={{marginTop: 20,padding:20}}>ToDo List</Typography>
           <AddTodoForm onAddTodo={handleAddTodo} />
           <TodoList todos={todos} onDeleteTodo={handleDeleteTodo} onTodoComplete={handleTodoComplete}/>
-        {/* </div> */}
+        
       </div>
-  
+  </>
   )
 }

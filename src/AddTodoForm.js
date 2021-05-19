@@ -18,31 +18,33 @@ export default function AddTodoForm({ onAddTodo }) {
         
       });
       setTodo("");
-      //reseting the task input
+      
     } else {
       alert("Please Enter Task");
-      // <Alert severity="info">
-      // <AlertTitle>Info</AlertTitle>
-      //  This is an info alert — <strong>Please Enter Task</strong>
-      // </Alert>
+      
 }
-  }
-  function Addbutton(){
-    return(
-      <IconButton type="submit" color="primary"><AddCircleOutlineIcon fontSize="large"/></IconButton>
-    )
   }
   
+  
   return (
-    <form className="todoform" onSubmit={handleSubmit}>
+    <form  onSubmit={handleSubmit}>
       <TextField 
         label="Enter Task"
-        // type="text"
         value={todo}
         onChange={handleTaskInputChange}
-        />
-      <Addbutton />
-      {/* <button type="submit">Add</button> */}
-    </form>
+      />
+      <AddButton />
+      
+     </form>
   );
 }
+function AddButton(){
+  return(
+    <IconButton type="submit" color="primary"><AddCircleOutlineIcon fontSize="large"/></IconButton>
+  )
+}
+
+{/* <Alert severity="info">
+      <AlertTitle>Info</AlertTitle>
+       This is an info alert — <strong>Please Enter Task</strong>
+      </Alert> */}
