@@ -2,6 +2,7 @@ import "./styles.css";
 import React from "react";
 import AddTodoForm from "./AddTodoForm";
 import TodoList from "./TodoList";
+import Typography from '@material-ui/core/Typography';
 
 export default function App() {
   const [todos, setTodos] = React.useState(()=>{
@@ -46,7 +47,8 @@ export default function App() {
     // <>
       <div className="maindiv">
         {/* <div className="childdiv"> */}
-          <h1>Todo List</h1>
+          {/* <h1>Todo List</h1> */}
+          <Typography variant="h2" style={{marginTop: 20,padding:20}}>ToDo List</Typography>
           <AddTodoForm onAddTodo={handleAddTodo} />
           <TodoList todos={todos} onDeleteTodo={handleDeleteTodo} onTodoComplete={handleTodoComplete}/>
         {/* </div> */}

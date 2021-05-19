@@ -1,7 +1,10 @@
 import React from "react";
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
-import { IconButton } from "@material-ui/core";
-import { Checkbox } from '@material-ui/core';
+// import { IconButton } from "@material-ui/core";
+import { Checkbox,ListItem,ListItemText,IconButton } from '@material-ui/core';
+// import ListItem from '@material-ui/core/ListItem';
+// import ListItemText from '@material-ui/core/ListItemText';
+
 export default function Todoitem({ todo, onDeleteTodo,onTodoComplete}) {
   function deleteTodo() {
     onDeleteTodo(todo.id);
@@ -19,16 +22,14 @@ export default function Todoitem({ todo, onDeleteTodo,onTodoComplete}) {
 
 
   return (
-    <div className="list">
-      <Checkbox size="small" 
+    <ListItem>
+     <Checkbox size="small" 
         onClick={handleCheckbox}
         inputProps={{ 'aria-label': 'checkbox with small size' }}
+        checked={todo.isComplete}
       />
-      {/* <input type="checkbox" onClick={handleCheckbox} /> */}
-      <li style={{ textDecoration: todo.isComplete ? "line-through" : null }}>
-        {todo.task}
-      </li>
+      <ListItemText  primary={todo.task} style={{ textDecoration: todo.isComplete ? "line-through" : null }}/>
       <Deletebutton onClick={deleteTodo}/>
-     </div>
+    </ListItem>
   );
 }

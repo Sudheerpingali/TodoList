@@ -29,7 +29,7 @@ export default function AddTodoForm({ onAddTodo }) {
   }
   function Addbutton(){
     return(
-      <IconButton type="submit"><AddCircleOutlineIcon fontSize="large"/></IconButton>
+      <IconButton type="submit" color="primary"><AddCircleOutlineIcon fontSize="large"/></IconButton>
     )
   }
   

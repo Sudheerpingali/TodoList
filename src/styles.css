@@ -6,11 +6,11 @@ html {
 /* .App {
   text-align: center;
 } */
-h1 {
+/* h1 {
   background-color: white;
   font-size: 50px;
   margin-top: 30px;
-}
+} */
 #root{
   min-height: 100vh;
   background-color: white;
@@ -43,19 +43,19 @@ h1 {
   /* justify-items: center; */
 }
 
-li {
+/* li {
   list-style-type: none;
   font-weight: bold;
-}
-.list {
+} */
+/* .list {
   align-items: center;
    background: #fff;
   /* padding: 6px; */
-   border-radius: 5px; 
+   /* border-radius: 5px; 
   margin: 0 20px 5px; 
-  display: flex;
-  justify-content: space-between;
-}
+  display: flex; */
+  /* justify-content: space-between; */
+/* } */ 
 /* ..todoform{
   display: flex;
   flex-direction: row;
