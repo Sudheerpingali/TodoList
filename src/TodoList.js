@@ -12,4 +12,3 @@ export default function TodoList({ todos, onDeleteTodo,onTodoComplete }) {
   </List>
   );
 }
- 

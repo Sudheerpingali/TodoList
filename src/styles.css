@@ -11,14 +11,3 @@ html {
   justify-content: center;
 }
 
-
-.maindiv {
-  background-color: rgb(206, 214, 214);
-  border: 2px solid black;
-  border-radius: 15px;
-  text-align: center;
-  margin-top:6rem;
-  margin-bottom: 70px;
-  width: 380px;
-  justify-content: center;
-}

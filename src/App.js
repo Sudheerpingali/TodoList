@@ -4,6 +4,9 @@ import AddTodoForm from "./AddTodoForm";
 import TodoList from "./TodoList";
 import Typography from '@material-ui/core/Typography';
 import AppBar from '@material-ui/core/AppBar';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+
 export default function App() {
   const [todos, setTodos] = React.useState(()=>{
     return JSON.parse(localStorage.getItem("todos"));
@@ -40,13 +43,16 @@ export default function App() {
 
   return (
     <>
-    <AppBar style={{padding:20,fontSize:35,alignItems:"center",fontStyle:"italic"}}>Todo App</AppBar>
-      <div className="maindiv">
-          <Typography variant="h2" style={{marginTop: 20,padding:20}}>ToDo List</Typography>
+    <AppBar style={{padding:15,fontSize:35,alignItems:"center",fontStyle:"italic"}}>Todo App</AppBar>
+      {/* <div className="maindiv"> */}
+      <Grid item xs={12} style={{textAlign:"center",marginTop:"5rem"}}>
+          <Paper>
+          {/* <Typography variant="h3" style={{padding:20}}>Todo List</Typography> */}
           <AddTodoForm onAddTodo={handleAddTodo} />
           <TodoList todos={todos} onDeleteTodo={handleDeleteTodo} onTodoComplete={handleTodoComplete}/>
-        
-      </div>
+          </Paper>
+    </Grid>
+      {/* </div> */}
   </>
   )
 }
