@@ -28,7 +28,7 @@ export default function Todoitem({ todo, onDeleteTodo,onTodoComplete}) {
         inputProps={{ 'aria-label': 'checkbox with small size' }}
         checked={todo.isComplete}
       />
-      <ListItemText style={{fontWeight:"bold"}} primary={todo.task} style={{ textDecoration: todo.isComplete ? "line-through" : null}}/>
+      <ListItemText primary={todo.task} style={{ textDecoration: todo.isComplete ? "line-through" : null}}/>
       <Deletebutton onClick={deleteTodo}/>
     </ListItem>
     // </Grid>

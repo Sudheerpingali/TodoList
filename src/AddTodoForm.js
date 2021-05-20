@@ -21,44 +21,50 @@ export default function AddTodoForm({ onAddTodo }) {
         isComplete:false,
         id: Math.random() * 100,
       });
+      setShowAlert(false)
       setTodo("");
       
     } else{
-       alert("Please Enter Task");
-       
+       setShowAlert(true);
     }
 
   }
   
   
   return (
-    <Grid item xs={13} style={{alignItems:"center",margin:10}}>
-    <Paper style={{backgroundColor:"lightblue"}}>
+    <Grid item xs={12}  style={{alignItems:"center",margin:10}}>
     <form  onSubmit={handleSubmit}>
-    <Typography variant="h4" style={{padding:5}}>Todo List</Typography>
+      <div style={{display:"flex"}}>
+   
       <TextField 
         label="Enter Task"
         value={todo}
         onChange={handleTaskInputChange}
+        fullWidth
       />
       <AddButton />
-      
+
+      </div>
+      <AlertE show={showAlert}/>
       </form>
-      </Paper>
      </Grid>
   );
 }
 function AddButton(){
   return(
-    <IconButton type="submit" color="primary"><AddCircleOutlineIcon fontSize="large"/></IconButton>
+    <IconButton type="submit" color="primary"><AddCircleOutlineIcon fontSize="medium"/></IconButton>
   )
 }
 
-
-
-
-
-{/* <Alert severity="info">
+function AlertE({show}){
+  if(!show){
+    return null;
+  }
+  return(
+    <Alert severity="info">
       <AlertTitle>Info</AlertTitle>
        This is an info alert — <strong>Please Enter Task</strong>
-      </Alert>  */}
+      </Alert>
+  )
+}
+

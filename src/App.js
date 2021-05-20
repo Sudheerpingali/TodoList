@@ -44,15 +44,15 @@ export default function App() {
   return (
     <>
     <AppBar style={{padding:15,fontSize:35,alignItems:"center",fontStyle:"italic"}}>Todo App</AppBar>
-      {/* <div className="maindiv"> */}
-      <Grid item xs={12} style={{textAlign:"center",marginTop:"5rem"}}>
+      
+      <Grid item xs={6} style={{textAlign:"center",marginTop:"5rem"}}>
           <Paper>
-          {/* <Typography variant="h3" style={{padding:20}}>Todo List</Typography> */}
+          <Typography variant="h3" style={{padding:10}}>Todo List</Typography>
           <AddTodoForm onAddTodo={handleAddTodo} />
           <TodoList todos={todos} onDeleteTodo={handleDeleteTodo} onTodoComplete={handleTodoComplete}/>
           </Paper>
     </Grid>
-      {/* </div> */}
+     
   </>
   )
 }
