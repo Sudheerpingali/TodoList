@@ -1,70 +1,90 @@
 import React from "react";
-import {IconButton, TextField} from "@material-ui/core"
+import { IconButton, TextField } from "@material-ui/core"
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-import { Alert ,AlertTitle} from '@material-ui/lab'
+import { Alert, AlertTitle } from '@material-ui/lab'
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-
+import { makeStyles } from "@material-ui/core/styles"
+const useAppStyles = makeStyles(
+  () => {
+    return {
+      form: {
+        marginTop: "2rem",
+        padding: 10,
+        backgroundColor: "lightblue"
+      },
+      button: {
+        textAlign: "center"
+      }
+    };
+  },
+  {
+    name: "Todoform"
+  }
+);
 
 export default function AddTodoForm({ onAddTodo }) {
+  const classes = useAppStyles();
   const [todo, setTodo] = React.useState("");
   function handleTaskInputChange(e) {
     setTodo(e.target.value);
   }
-  const [showAlert,setShowAlert]=React.useState(false)
+  const [showAlert, setShowAlert] = React.useState(false)
   function handleSubmit(event) {
     event.preventDefault();
     if (todo) {
       onAddTodo({
         task: todo,
-        isComplete:false,
+        isComplete: false,
         id: Math.random() * 100,
       });
       setShowAlert(false)
       setTodo("");
-      
-    } else{
-       setShowAlert(true);
+
+    } else {
+      setShowAlert(true);
     }
 
   }
-  
-  
-  return (
-    <Grid item xs={12}  style={{alignItems:"center",margin:10}}>
-    <form  onSubmit={handleSubmit}>
-      <div style={{display:"flex"}}>
-   
-      <TextField 
-        label="Enter Task"
-        value={todo}
-        onChange={handleTaskInputChange}
-        fullWidth
-      />
-      <AddButton />
 
+
+  return (
+    // <Grid container>
+    <Grid item xs={12} className={classes.form} component="form" onSubmit={handleSubmit}>
+      <div className='div'>
+        <Grid item xs={10}>
+          <Paper>
+            <TextField
+              label="Enter Task"
+              value={todo}
+              onChange={handleTaskInputChange}
+            // fullWidth
+            /></Paper>
+        </Grid>
+        <Grid item xs={2} className={classes.button}><Paper><AddButton /></Paper></Grid>
       </div>
-      <AlertE show={showAlert}/>
-      </form>
-     </Grid>
+      <ErrorAlert show={showAlert} />
+    </Grid>
+    //  </Grid>
+
   );
 }
-function AddButton(){
-  return(
-    <IconButton type="submit" color="primary"><AddCircleOutlineIcon fontSize="medium"/></IconButton>
+function AddButton() {
+  return (
+    <IconButton type="submit" color="primary"><AddCircleOutlineIcon fontSize="medium" /></IconButton>
   )
 }
 
-function AlertE({show}){
-  if(!show){
+function ErrorAlert({ show }) {
+  if (!show) {
     return null;
   }
-  return(
+  return (
     <Alert severity="info">
       <AlertTitle>Info</AlertTitle>
        This is an info alert — <strong>Please Enter Task</strong>
-      </Alert>
+    </Alert>
   )
 }
 

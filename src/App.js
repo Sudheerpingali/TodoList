@@ -4,16 +4,41 @@ import AddTodoForm from "./AddTodoForm";
 import TodoList from "./TodoList";
 import Typography from '@material-ui/core/Typography';
 import AppBar from '@material-ui/core/AppBar';
-import Grid from '@material-ui/core/Grid';
+import { Grid } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+const useAppStyles = makeStyles(
+  () => {
+    return {
+      item: {
+        marginTop: "2rem",
+      },
+      root: {
+        background: "black",
+        padding: 10
+      },
+      paper: {
+        textAlign: 'center',
+        backgroundColor: 'yellow'
+      },
+      listitem: {
+        backgroundColor: "lightyellow",
+        marginBottom: 10,
+        borderRadius: 10
+      }
+    };
+  },
+  {
+    name: "App"
+  }
+);
 
 export default function App() {
-  const [todos, setTodos] = React.useState(()=>{
+  const [todos, setTodos] = React.useState(() => {
     return JSON.parse(localStorage.getItem("todos"));
   }
 
   );
-  //creating a function that will take any todo and add it to the array of TOdos
   function handleAddTodo(todo) {
     setTodos([todo, ...todos]);
   }
@@ -28,31 +53,36 @@ export default function App() {
           return {
             ...todo,
             isComplete: !todo.isComplete,
-            
+
           };
         }
         return todo;
       })
     );
   }
-  
   React.useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
     console.log(todos);
   }, [todos]);
+  const classes = useAppStyles();
 
   return (
     <>
-    <AppBar style={{padding:15,fontSize:35,alignItems:"center",fontStyle:"italic"}}>Todo App</AppBar>
-      
-      <Grid item xs={6} style={{textAlign:"center",marginTop:"5rem"}}>
+      {/* <AppBar style={{padding:15,fontSize:35,alignItems:"center",fontStyle:"italic"}}>Todo App</AppBar> */}
+      <Grid container xs={12} className={classes.root} >
+        <Grid item xs={12} className={classes.item} >
+          <Grid items xs={12}>
+            <Paper className={classes.paper} >
+              <Typography variant="h3" >Todo List</Typography>
+            </Paper>
+          </Grid>
+
           <Paper>
-          <Typography variant="h3" style={{padding:10}}>Todo List</Typography>
-          <AddTodoForm onAddTodo={handleAddTodo} />
-          <TodoList todos={todos} onDeleteTodo={handleDeleteTodo} onTodoComplete={handleTodoComplete}/>
+            <AddTodoForm onAddTodo={handleAddTodo} />
+            <TodoList todos={todos} onDeleteTodo={handleDeleteTodo} onTodoComplete={handleTodoComplete} />
           </Paper>
-    </Grid>
-     
-  </>
+        </Grid>
+      </Grid>
+    </>
   )
 }
