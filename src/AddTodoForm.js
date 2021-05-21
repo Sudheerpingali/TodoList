@@ -6,14 +6,9 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from "@material-ui/core/styles"
-const useAppStyles = makeStyles(
+const useFormStyles = makeStyles(
   () => {
     return {
-      form: {
-        marginTop: "2rem",
-        padding: 10,
-        backgroundColor: "lightblue"
-      },
       button: {
         textAlign: "center"
       }
@@ -25,7 +20,6 @@ const useAppStyles = makeStyles(
 );
 
 export default function AddTodoForm({ onAddTodo }) {
-  const classes = useAppStyles();
   const [todo, setTodo] = React.useState("");
   function handleTaskInputChange(e) {
     setTodo(e.target.value);
@@ -47,26 +41,23 @@ export default function AddTodoForm({ onAddTodo }) {
     }
 
   }
-
+  const classes = useFormStyles();
 
   return (
-    // <Grid container>
-    <Grid item xs={12} className={classes.form} component="form" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <div className='div'>
-        <Grid item xs={10}>
-          <Paper>
-            <TextField
-              label="Enter Task"
-              value={todo}
-              onChange={handleTaskInputChange}
-            // fullWidth
-            /></Paper>
+        <Grid component={Paper} item xs={10}>
+          <TextField
+            label="Enter Task"
+            value={todo}
+            onChange={handleTaskInputChange}
+            fullWidth
+          />
         </Grid>
-        <Grid item xs={2} className={classes.button}><Paper><AddButton /></Paper></Grid>
+        <Grid item xs={2} component={Paper} className={classes.button}><AddButton /></Grid>
       </div>
       <ErrorAlert show={showAlert} />
-    </Grid>
-    //  </Grid>
+    </form>
 
   );
 }

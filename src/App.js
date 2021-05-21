@@ -3,28 +3,29 @@ import React from "react";
 import AddTodoForm from "./AddTodoForm";
 import TodoList from "./TodoList";
 import Typography from '@material-ui/core/Typography';
-import AppBar from '@material-ui/core/AppBar';
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+
 const useAppStyles = makeStyles(
   () => {
     return {
       item: {
         marginTop: "2rem",
+        fontStyle: "italic"
       },
       root: {
-        background: "black",
-        padding: 10
+        padding: 10,
+        margin: "0 auto"
       },
       paper: {
         textAlign: 'center',
-        backgroundColor: 'yellow'
       },
-      listitem: {
-        backgroundColor: "lightyellow",
-        marginBottom: 10,
-        borderRadius: 10
+      form: {
+        marginTop: "2rem"
+      },
+      todolist: {
+        marginTop: "1rem"
       }
     };
   },
@@ -68,21 +69,17 @@ export default function App() {
 
   return (
     <>
-      {/* <AppBar style={{padding:15,fontSize:35,alignItems:"center",fontStyle:"italic"}}>Todo App</AppBar> */}
-      <Grid container xs={12} className={classes.root} >
+      <Grid container xs={6} sm={5} className={classes.root} >
         <Grid item xs={12} className={classes.item} >
-          <Grid items xs={12}>
-            <Paper className={classes.paper} >
-              <Typography variant="h3" >Todo List</Typography>
-            </Paper>
-          </Grid>
-
-          <Paper>
-            <AddTodoForm onAddTodo={handleAddTodo} />
-            <TodoList todos={todos} onDeleteTodo={handleDeleteTodo} onTodoComplete={handleTodoComplete} />
-          </Paper>
+          <Typography variant="h3" className={classes.paper}  >Todo List</Typography>
+        </Grid>
+        <Grid item xs={12} className={classes.form}>
+          <AddTodoForm onAddTodo={handleAddTodo} /></Grid>
+        <Grid item xs={12} className={classes.todolist}>
+          <TodoList todos={todos} onDeleteTodo={handleDeleteTodo} onTodoComplete={handleTodoComplete} />
         </Grid>
       </Grid>
+
     </>
   )
 }
